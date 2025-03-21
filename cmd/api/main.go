@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gocanto/blog/packages/core"
-	"github.com/gocanto/blog/packages/users"
+	"github.com/gocanto/blog/packages/user"
 	"log/slog"
 	"net/http"
 )
@@ -12,6 +12,12 @@ func main() {
 		panic("error opening file: " + err.Error())
 	} else {
 		defer fileLogs.Close()
+	}
+
+	validator := core.MakeValidator()
+
+	users := user.HandleUsers{
+		Validator: validator,
 	}
 
 	mux := http.NewServeMux()

@@ -109,7 +109,7 @@ db\:secure:
     openssl x509 -req -days 365 -in $(DB_SERVER_CSR) -signkey $(DB_SERVER_KEY) -out $(DB_SERVER_CRT) && \
     chmod 600 $(DB_SERVER_KEY) && chmod 600 $(DB_SERVER_CRT)
 
-db\:secure\:show:
+db\:secure\:show::
 	docker exec -it $(DB_DOCKER_CONTAINER_NAME) ls -l /etc/ssl/private/server.key && \
 	docker exec -it $(DB_DOCKER_CONTAINER_NAME) ls -l /etc/ssl/certs/server.crt
 
@@ -127,7 +127,8 @@ migrate\:create:
 	docker run -v $(DB_MIGRATE_VOL_MAP) --network ${ROOT_NETWORK} migrate/migrate create -ext sql -dir $(DB_MIGRATE_PATH) -seq $(name)
 
 migrate\:up\:force:
-	migrate -path $(DB_MIGRATE_PATH) -database $(ENV_DB_URL) force $(version)
+	#migrate -path PATH_TO_YOUR_MIGRATIONS -database YOUR_DATABASE_URL force VERSION
+	docker run -v $(DB_MIGRATE_VOL_MAP) --network ${ROOT_NETWORK} migrate/migrate migrate -path $(DB_MIGRATE_PATH) -database $(ENV_DB_URL) force $(version)
 
 logs\:clear:
 	find $(STORAGE_PATH)/logs -maxdepth 1 -type f -not -name ".gitkeep" -delete
@@ -146,7 +147,7 @@ endef
 .PHONY: api\:air api\:build api\:release api\:run
 .PHONY: env\:init
 .PHONY: db\:local db\:up db\:ping db\:bash db\:fresh db\:logs db\:delete db\:secure db\:secure\:show
-.PHONY: migrate\:up migrate\:down migrate\:create migrate\:up\:force
+.PHONY: migrate\:up migrate\:down migrate\:create db\:migrate\:force
 .PHONY: logs\:clear logs\:bin\:fresh
 
 RAND = $(shell echo $$RANDOM)
