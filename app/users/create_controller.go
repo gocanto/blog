@@ -25,7 +25,7 @@ type CreateRequestBag struct {
 	ProfilePictureURL    string `json:"profile_picture_url" validate:"omitempty,url,max=2048"`
 }
 
-func (handler UserController) Create(w http.ResponseWriter, r *http.Request) *controller.HttpError {
+func (uc UserController) Create(w http.ResponseWriter, r *http.Request) *controller.HttpError {
 	body, err := io.ReadAll(r.Body)
 
 	defer func(Body io.ReadCloser) {
@@ -113,12 +113,12 @@ func (handler UserController) Create(w http.ResponseWriter, r *http.Request) *co
 		return controller.BadRequest("Invalid request payload: malformed JSON", err)
 	}
 
-	validate := handler.Validator
+	validate := uc.Validator
 	if rejects, err := validate.Rejects(requestBag); rejects {
 		return controller.RespondWithErrors("Validation failed", validate.GetErrors(), err)
 	}
 
-	if result := handler.Repository.FindByUserName(requestBag.Username); result != nil {
+	if result := uc.Repository.FindByUserName(requestBag.Username); result != nil {
 		return controller.RespondWithErrors(
 			fmt.Sprintf("user '%s' already exists", requestBag.Username),
 			map[string]any{},
@@ -127,7 +127,7 @@ func (handler UserController) Create(w http.ResponseWriter, r *http.Request) *co
 	}
 
 	requestBag.PublicToken = r.Header.Get(env.ApiKeyHeader)
-	created, err := handler.Repository.Create(requestBag)
+	created, err := uc.Repository.Create(requestBag)
 
 	if err != nil {
 		return controller.InternalServerError(err.Error(), err)

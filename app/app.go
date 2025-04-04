@@ -30,14 +30,14 @@ func (app App) RegisterUsers() {
 		return app.AdminUser.IsAllowed(seed)
 	})
 
-	handler := users.UserController{
+	userController := users.UserController{
 		Repository: users.MakeRepository(app.Orm, app.AdminUser),
 		Validator:  app.Validator,
 	}
 
 	app.Mux.HandleFunc("POST /users", controller.CreateHandle(
 		stack.Push(
-			handler.Create,
+			userController.Create,
 			stack.Logging,
 			stack.AdminUser,
 		),

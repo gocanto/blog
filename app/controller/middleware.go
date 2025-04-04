@@ -12,9 +12,9 @@ func (s MiddlewareStack) Logging(next BaseController) BaseController {
 		err := next(w, r)
 
 		if err != nil {
-			println("Handler returned error:", err.Message)
+			println("Middleware returned error:", err.Message)
 		} else {
-			println("Handler completed successfully")
+			println("Middleware completed successfully")
 		}
 
 		return err
@@ -37,11 +37,11 @@ func (s MiddlewareStack) isAdminUser(seed string) bool {
 	return s.userAdminResolver(seed)
 }
 
-func (s MiddlewareStack) Push(handler BaseController, middlewares ...Middleware) BaseController {
+func (s MiddlewareStack) Push(controller BaseController, middlewares ...Middleware) BaseController {
 	// Apply middleware in reverse order, so the first middleware in the list is executed first.
 	for i := len(middlewares) - 1; i >= 0; i-- {
-		handler = middlewares[i](handler)
+		controller = middlewares[i](controller)
 	}
 
-	return handler
+	return controller
 }
