@@ -3,7 +3,7 @@ package main
 import (
 	baseValidator "github.com/go-playground/validator/v10"
 	"github.com/gocanto/blog/app/env"
-	"github.com/gocanto/blog/app/support"
+	"github.com/gocanto/blog/app/proxy"
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 	"log/slog"
@@ -11,10 +11,10 @@ import (
 )
 
 var environment *env.Environment
-var validator *support.Validator
+var validator *proxy.Validator
 
 func init() {
-	val := support.MakeValidatorFrom(baseValidator.New(
+	val := proxy.MakeValidatorFrom(baseValidator.New(
 		baseValidator.WithRequiredStructEnabled(),
 	))
 

@@ -3,8 +3,8 @@ package main
 import (
 	"github.com/gocanto/blog/app/database"
 	"github.com/gocanto/blog/app/env"
-	"github.com/gocanto/blog/app/logger"
-	"github.com/gocanto/blog/app/support"
+	"github.com/gocanto/blog/app/logs"
+	"github.com/gocanto/blog/app/proxy"
 	"github.com/gocanto/blog/app/users"
 	"strconv"
 	"strings"
@@ -20,8 +20,8 @@ func MakeORM(env *env.Environment) *database.Orm {
 	return dbConn
 }
 
-func MakeLogs(env *env.Environment) *logger.Managers {
-	lDriver, err := logger.MakeFilesManager(env)
+func MakeLogs(env *env.Environment) *logs.Driver {
+	lDriver, err := logs.MakeFilesLogs(env)
 
 	if err != nil {
 		panic("Logs: error opening logs file: " + err.Error())
@@ -37,7 +37,7 @@ func MakeAdminUser(env *env.Environment) *users.AdminUser {
 	}
 }
 
-func MakeEnv(values map[string]string, validate *support.Validator) *env.Environment {
+func MakeEnv(values map[string]string, validate *proxy.Validator) *env.Environment {
 	errorSufix := "Environment: "
 
 	port, _ := strconv.Atoi(values["ENV_DB_PORT"])

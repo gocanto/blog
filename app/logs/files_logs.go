@@ -1,4 +1,4 @@
-package logger
+package logs
 
 import (
 	"fmt"
@@ -8,22 +8,22 @@ import (
 	"time"
 )
 
-type FilesManager struct {
+type FilesLogs struct {
 	path   string
 	file   *os.File
 	logger *slog.Logger
 	env    *env.Environment
 }
 
-func MakeFilesManager(env *env.Environment) (Managers, error) {
-	manager := FilesManager{}
+func MakeFilesLogs(env *env.Environment) (Driver, error) {
+	manager := FilesLogs{}
 	manager.env = env
 
 	manager.path = manager.DefaultPath()
 	resource, err := os.OpenFile(manager.path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 
 	if err != nil {
-		return FilesManager{}, err
+		return FilesLogs{}, err
 	}
 
 	handler := slog.New(slog.NewTextHandler(resource, nil))
@@ -35,7 +35,7 @@ func MakeFilesManager(env *env.Environment) (Managers, error) {
 	return manager, nil
 }
 
-func (manager FilesManager) DefaultPath() string {
+func (manager FilesLogs) DefaultPath() string {
 	logsEnvironment := manager.env.Logs
 
 	return fmt.Sprintf(
@@ -44,7 +44,7 @@ func (manager FilesManager) DefaultPath() string {
 	)
 }
 
-func (manager FilesManager) Close() bool {
+func (manager FilesLogs) Close() bool {
 	if err := manager.file.Close(); err != nil {
 		manager.logger.Error("error closing file: " + err.Error())
 

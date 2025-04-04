@@ -13,16 +13,28 @@ go.work.sum
 .env
 database/data
 
-# --- build
-bin
-!bin/.gitkeep
-
 # --- air
 tmp
 app/tmp
 
-# --- Storage
-app/storage/logs/*.*
-bin/storage/*.*
-!app/storage/logs/.gitkeep
+# --- Bin / Storage
+bin
+!bin/.gitkeep
+bin/storage/logs/*.*
+bin/storage/media/*.*
+bin/storage/media/posts/*.*
+bin/storage/media/users/*.*
 !bin/storage/logs/.gitkeep
+!bin/storage/media/.gitkeep
+!bin/storage/media/posts/.gitkeep
+!bin/storage/media/users/.gitkeep
+
+# --- App / Storage
+app/storage/logs/*.*
+app/storage/media/*.*
+app/storage/media/posts/*.*
+app/storage/media/users/*.*
+!app/storage/logs/.gitkeep
+!app/storage/media/.gitkeep
+!app/storage/media/posts/.gitkeep
+!app/storage/media/users/.gitkeep
