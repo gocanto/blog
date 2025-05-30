@@ -5,7 +5,7 @@
 		<!-- Filters -->
 		<ul class="flex flex-wrap text-sm border-b border-slate-100 dark:border-slate-800">
 			<li class="px-3 -mb-px">
-				<a class="block py-3 font-medium text-slate-500 border-b-2 border-sky-500 dark:text-slate-300 dark:border-fuchsia-400" href="#">Coding</a>
+				<a class="block py-3 font-medium text-slate-500 border-b-2 border-fuchsia-500 dark:text-slate-300 dark:border-teal-500" href="#">Coding</a>
 			</li>
 			<li class="px-3 -mb-px">
 				<a class="block py-3 text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300" href="#">Startups</a>

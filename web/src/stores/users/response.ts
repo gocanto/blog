@@ -1,12 +1,12 @@
 import { User } from '@stores/users/userType.ts';
 
 export const Response: User = {
-    nickname: 'Gus',
-    handle: 'gocanto',
-    name: 'Gustavo Ocanto',
-    email: 'otnacog@example.com',
-    profession: 'Software Engineer',
-    salt: '8c403772-dd0f-4543-b26c-bc96747742f3',
+	nickname: 'Gus',
+	handle: 'gocanto',
+	name: 'Gustavo Ocanto',
+	email: 'otnacog@example.com',
+	profession: 'Software Engineer',
+	salt: '8c403772-dd0f-4543-b26c-bc96747742f3',
 	social: [
 		{
 			handle: '@gocanto',
@@ -48,7 +48,8 @@ export const Response: User = {
 			position: 'Head of Engineering',
 			start_date: 'June, 2024',
 			end_date: 'April, 2025',
-			summary: 'Led and integrated cross-functional engineering teams (DevOps, Infrastructure, Data, Frontend, Backend, Support) across time zones, fostering open communication and accountability. Scaled team growth and operations from Singapore, optimized performance (database queries from 3 s to 800 ms; API calls from 2 s to 100 ms), implemented cloud cost savings, and partnered with C-level leaders to expand engineering initiatives.',
+			summary:
+				'Led and integrated cross-functional engineering teams (DevOps, Infrastructure, Data, Frontend, Backend, Support) across time zones, fostering open communication and accountability. Scaled team growth and operations from Singapore, optimized performance (database queries from 3 s to 800 ms; API calls from 2 s to 100 ms), implemented cloud cost savings, and partnered with C-level leaders to expand engineering initiatives.',
 			country: 'Singapore',
 			city: 'Singapore',
 			skills: 'Executive Leadership, Strategic Planning, Engineering Management, Cross-functional Team Leadership, Technical Architecture.',
@@ -61,7 +62,8 @@ export const Response: User = {
 			position: 'Senior Software Engineer & Manager',
 			start_date: 'January, 2022',
 			end_date: 'April, 2024',
-			summary: 'Led a 12-person APAC team overseeing the software development lifecycle, mentorship, technical direction, and system architecture design. Engineered critical financial systems—prioritized payment request queues and automated credit schemas—and spearheaded SEA wallets from architecture through integration, unifying payment workflows and ledger synchronization. Improved debit account balance queries for real-time access and boosted API response times. Resolved data inconsistencies, refactored code for reliability, designed flexible scheduled payment solutions, and directed the transition from a monolithic to microservices architecture, significantly enhancing platform scalability and maintainability.',
+			summary:
+				'Led a 12-person APAC team overseeing the software development lifecycle, mentorship, technical direction, and system architecture design. Engineered critical financial systems—prioritized payment request queues and automated credit schemas—and spearheaded SEA wallets from architecture through integration, unifying payment workflows and ledger synchronization. Improved debit account balance queries for real-time access and boosted API response times. Resolved data inconsistencies, refactored code for reliability, designed flexible scheduled payment solutions, and directed the transition from a monolithic to microservices architecture, significantly enhancing platform scalability and maintainability.',
 			country: 'Singapore',
 			city: 'Singapore',
 			skills: 'Leadership, Strategic Planning, Engineering Management, Cross-functional Team Leadership, Technical Architecture.',
@@ -74,7 +76,8 @@ export const Response: User = {
 			position: 'Engineering Lead',
 			start_date: 'September, 2017',
 			end_date: 'November, 2021',
-			summary: 'Developed and maintained inventory systems with availability calculations and time-slot capacity management. Led SaaS platform development for auto-recurring subscription payments and invoicing. Owned integration of Adyen, Stripe, and PayPal gateways for new white-label e-commerce accounts, and implemented third-party booking supplier APIs across B2B, B2C, and white-label channels, supporting mission-critical operations in Southeast Asian markets.',
+			summary:
+				'Developed and maintained inventory systems with availability calculations and time-slot capacity management. Led SaaS platform development for auto-recurring subscription payments and invoicing. Owned integration of Adyen, Stripe, and PayPal gateways for new white-label e-commerce accounts, and implemented third-party booking supplier APIs across B2B, B2C, and white-label channels, supporting mission-critical operations in Southeast Asian markets.',
 			country: 'Singapore',
 			city: 'Singapore',
 			skills: 'Leadership, Strategic Planning, Cross-functional Team Leadership, Engineering Management, Technical Architecture.',
@@ -87,7 +90,8 @@ export const Response: User = {
 			position: 'Web Developer',
 			start_date: 'June, 2014',
 			end_date: 'September, 2017',
-			summary: 'Built diverse web applications for SMEs—including e-commerce, POS, medical history, and neighborhood feedback platforms—using PHP, Laravel, VueJS, and MySQL. I also designed and delivered a multi-city drop-shipment warehouse management system, enabling real-time inventory control linked to financial reporting and distribution across multiple locations.',
+			summary:
+				'Built diverse web applications for SMEs—including e-commerce, POS, medical history, and neighborhood feedback platforms—using PHP, Laravel, VueJS, and MySQL. I also designed and delivered a multi-city drop-shipment warehouse management system, enabling real-time inventory control linked to financial reporting and distribution across multiple locations.',
 			country: 'United States',
 			city: 'Oklahoma City',
 			skills: 'Leadership, Strategic Planning, Strategy Alignment, Cross-functional Team Leadership, Complexity Management',
@@ -100,7 +104,8 @@ export const Response: User = {
 			position: 'Founder & Software Engineer',
 			start_date: 'February, 2011',
 			end_date: 'May, 2014',
-			summary: 'Led a team of designers and PHP developers, managing nationwide client projects and overseeing the full app development lifecycle—including iOS/Android social networking apps. I built CMS, shipping-tracking, e-commerce, web portfolio, college enrollment, and university survey systems, plus a City Hall Administrative System covering accounts payable, HR, payroll, treasury, and tax modules. My work leveraged PHP, jQuery (and jQuery Mobile), Cordova-JS, MySQL, HTML5, AngularJS, and Laravel 5, integrating third-party APIs and Facebook/Twitter logins within a SCRUM framework.',
+			summary:
+				'Led a team of designers and PHP developers, managing nationwide client projects and overseeing the full app development lifecycle—including iOS/Android social networking apps. I built CMS, shipping-tracking, e-commerce, web portfolio, college enrollment, and university survey systems, plus a City Hall Administrative System covering accounts payable, HR, payroll, treasury, and tax modules. My work leveraged PHP, jQuery (and jQuery Mobile), Cordova-JS, MySQL, HTML5, AngularJS, and Laravel 5, integrating third-party APIs and Facebook/Twitter logins within a SCRUM framework.',
 			country: 'Venezuela',
 			city: 'Valencia',
 			skills: 'Leadership, Strategic Planning, Strategy Alignment, Team Development, Complexity Management.',
@@ -113,7 +118,8 @@ export const Response: User = {
 			position: 'Web Developer',
 			start_date: 'May, 2009',
 			end_date: 'February, 2011',
-			summary: 'Maintained the company’s AS400 administrative system and spearheaded development of department-specific applications—an e-commerce inventory control for retail, web reporting for production-line quality control, an online appointment system for the medical department, and a visitor registration/management tool. I leveraged PHP, jQuery, MySQL, HTML5, and AS400 within a SCRUM framework.',
+			summary:
+				'Maintained the company’s AS400 administrative system and spearheaded development of department-specific applications—an e-commerce inventory control for retail, web reporting for production-line quality control, an online appointment system for the medical department, and a visitor registration/management tool. I leveraged PHP, jQuery, MySQL, HTML5, and AS400 within a SCRUM framework.',
 			country: 'Venezuela',
 			city: 'Valencia',
 			skills: 'Creative Problem Solving, Analytical Skills, Strategy Alignment, Strategic Planning, Complexity Management.',
@@ -126,7 +132,8 @@ export const Response: User = {
 			position: 'Web Developer',
 			start_date: 'March, 2008',
 			end_date: 'April, 2009',
-			summary: 'Maintained a Visual Basic administrative system and built internal applications to streamline operations—mail management, mechanical design support, sales-report automation, and web-based customer invoicing. I trained staff on these tools and provided technical support for Windows 8 and PC servers using PHP, jQuery, MySQL, HTML, and SQL Server.',
+			summary:
+				'Maintained a Visual Basic administrative system and built internal applications to streamline operations—mail management, mechanical design support, sales-report automation, and web-based customer invoicing. I trained staff on these tools and provided technical support for Windows 8 and PC servers using PHP, jQuery, MySQL, HTML, and SQL Server.',
 			country: 'Venezuela',
 			city: 'Valencia',
 			skills: 'Creative Problem Solving, Analytical Skills, Strategy Alignment, Strategic Planning, Complexity Management.',

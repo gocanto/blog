@@ -1,5 +1,5 @@
 <template>
-		<img :class="className" :src="props.avatar" :alt="props.alt" />
+	<img :class="className" :src="props.avatar" :alt="props.alt" />
 </template>
 
 <script setup lang="ts">
@@ -21,6 +21,6 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const className = computed<string>(() => {
-	return `rounded-full p-1 ring-1 ring-gray-200 dark:ring-slate-600 ${props.width} ${props.height}`;
+	return `rounded-full p-1 ring-1 ring-fuchsia-200 dark:ring-teal-500 ${props.width} ${props.height}`;
 });
 </script>

@@ -56,7 +56,7 @@ const userStore = useUserStore();
 
 onMounted(() => {
 	userStore.onBoot(() => {
-		console.log('[home]: app booted...')
+		console.log('[home]: app booted...');
 	});
-})
+});
 </script>

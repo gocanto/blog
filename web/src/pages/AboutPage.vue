@@ -15,53 +15,45 @@
 							<div class="max-w-[700px]">
 								<section>
 									<!-- Page title -->
-									<h1
-										class="h1 font-aspekta mb-5 mt-5 text-slate-700 dark:text-slate-300"
-									>
-										Hi. I'm > {{ user ? user.nickname : 'Gus' }}
-										<span v-if="social" class="blog-fun-title-word-highlight">
-											<a :href="social.x.url" :title="social.x.title" target="_blank">{{ social.x.handle }}</a>
-										</span>
-									</h1>
+									<h1 class="h1 blog-h1">I'm {{ user ? user.nickname : 'Gus' }}. I live in Singapore, where I enjoy the present.</h1>
 
 									<img class="rounded-lg w-full mb-5" :src="aboutPicture" alt="About" />
 
 									<!-- Page content -->
-									<div class="space-y-8">
+									<div class="space-y-8 text-slate-500">
 										<div class="space-y-4">
-											<h2 class="h2 font-aspekta text-slate-700 dark:text-slate-300">About</h2>
-											<p class="block mb-5 text-slate-500">
-												<span class="block">
-													I am a dedicated engineering leader passionate about building seamless, high-quality experiences for organizations and
-													<a v-if="social" class="blog-link" target="_blank" :href="social.github.url">open source</a>. With over twenty years of&nbsp;
-													<router-link v-slot="{ href, navigate }" to="/resume">
-														<a class="blog-link" :href="href" @click="navigate">experience</a>
-													</router-link>
-													in software development, workplace technology, and infrastructure management.
-												</span>
-												<span class="block mt-5 text-slate-500">
-													I specialize in Golang, Node.js, TypeScript, and PHP. I am also proficient in Laravel, Symfony, and modern web frameworks like Next.Js. Furthermore,
-													I have led teams designing and implementing scalable, high-performance systems, ensuring reliability and efficiency across complex technical
-													environments.
-												</span>
+											<p class="block mb-3">
+												I am an engineering leader who’s passionate about building reliable and smooth software that strive to make a difference. With over twenty years in
+												software development and architecture, I’ve worked extensively with
+												<a class="blog-link" target="_blank" href="https://go.dev/">GO</a>, <a class="blog-link" target="_blank" href="https://nodejs.org/en">Node.js</a>,
+												<a class="blog-link" target="_blank" href="https://www.typescriptlang.org/">TypeScript</a>, and
+												<a class="blog-link" target="_blank" href="https://www.php.net/">PHP</a>. I’m also comfortable with frameworks/libraries such as
+												<a class="blog-link" target="_blank" href="https://laravel.com/">Laravel</a>, <a class="blog-link" target="_blank" href="https://vuejs.org/">Vue</a>,
+												<a class="blog-link" target="_blank" href="https://symfony.com/">Symfony</a>, and
+												<a class="blog-link" target="_blank" href="https://nextjs.org/">Next.js</a>.
 											</p>
-											<p class="block mb-3 text-slate-500">
-												Beyond technical expertise, I have a strong <a v-if="social" class="blog-link" :href="social.linkedin.url" target="_blank">leadership background</a> in managing
-												cross-functional teams, optimizing workflows, and implementing best practices that drive productivity and innovation. I thrive in fast-paced
-												environments that demand strategic thinking, problem-solving, and a commitment to delivering high-quality results.
+											<p class="block mb-3">
+												I’ve led teams in designing and delivering scalable, high-performance systems that run efficiently even in complex environments. Beyond writing code, I
+												focus on helping teams work better together by improving workflows and encouraging innovation.
+											</p>
+											<p class="block mb-3">
+												I thrive in fast-paced settings where clear thinking and problem-solving are key, and I’m always committed to delivering high-quality results.
+											</p>
+											<p class="block mb-3">
+												For me, software has always been more than just a job—it’s a way to turn ideas into real solutions. Over the years, I’ve enjoyed tackling challenges,
+												learning new technologies, and guiding talented teams to create tools that users and businesses rely on.
+											</p>
+											<p class="block">
+												Today, I combine deep technical skills with thoughtful leadership to help teams push boundaries and build software that grows and scales with purpose.
 											</p>
 										</div>
 
-										<ExperiencePartial v-if="user" :experience="user.experience" />
-
 										<div class="mt-5 space-y-5">
 											<h2 class="h2 font-aspekta text-slate-700 dark:text-slate-300">Let's Connect</h2>
-											<p v-if="social">
-												I’m excited to connect by <a class="blog-link" title="follow me on x" :href="`mailto:${user.email}`">email</a> or
-												<a class="blog-link" target="_blank" :href="social.x.url">X</a> to chat about projects and ideas. I’m always open to freelance or long-term projects,
-												so please feel free to reach out.
+											<p v-if="user">
+												I’m happy to connect by <a class="blog-link" title="follow me on x" :href="`mailto:${user.email}`">email</a> to discuss projects and ideas. While I’m
+												not always available for freelance or long-term work, please don’t hesitate to reach out anytime.
 											</p>
-											<p>Tell me about your vision, and if it seems like a good fit, we can explore collaborating down the road.</p>
 										</div>
 									</div>
 								</section>
@@ -72,9 +64,8 @@
 						<!-- Right sidebar -->
 						<aside class="md:w-[240px] lg:w-[300px] shrink-0">
 							<div class="space-y-6">
+								<WidgetSocialPartial />
 								<WidgetNewsletterPartial />
-
-								<WidgetSponsorPartial />
 							</div>
 						</aside>
 					</div>
@@ -87,20 +78,18 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref, onMounted } from 'vue';
+import type { User } from '@stores/users/userType';
+import { useUserStore } from '@stores/users/user.ts';
 import AboutPicture from '@images/profile/about.png';
 import FooterPartial from '@partials/FooterPartial.vue';
 import HeaderPartial from '@partials/HeaderPartial.vue';
 import SideNavPartial from '@partials/SideNavPartial.vue';
-import ExperiencePartial from '@partials/ExperiencePartial.vue';
-import WidgetSponsorPartial from '@partials/WidgetSponsorPartial.vue';
+import WidgetSocialPartial from '@partials/WidgetSocialPartial.vue';
 import WidgetNewsletterPartial from '@partials/WidgetNewsletterPartial.vue';
-import { computed, ref, onMounted } from 'vue';
-import { useUserStore } from '@stores/users/user.ts';
-import type { User, SocialMediaMap } from '@stores/users/userType';
 
 const userStore = useUserStore();
 const user = ref<User | null>(null);
-const social = ref<SocialMediaMap | null>(null)
 
 const aboutPicture = computed<string>(() => {
 	return AboutPicture;
@@ -109,7 +98,6 @@ const aboutPicture = computed<string>(() => {
 onMounted(() => {
 	userStore.onBoot((profile: User) => {
 		user.value = profile;
-		social.value = userStore.getSocialMedia();
-	})
-})
+	});
+});
 </script>

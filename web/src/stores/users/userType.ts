@@ -5,7 +5,7 @@ export interface Social {
 	description: string;
 }
 
-export const SocialMediaMap = Record<string, Social>;
+export type SocialMediaMap = Record<string, Social>;
 
 export interface Experience {
 	uuid: string;
@@ -22,12 +22,12 @@ export interface Experience {
 }
 
 export interface User {
-    nickname: string;
-    handle: string;
-    name: string;
-    email: string;
-    profession: string;
-    salt: string;
+	nickname: string;
+	handle: string;
+	name: string;
+	email: string;
+	profession: string;
+	salt: string;
 	social: Social[];
 	experience: Experience[];
 }

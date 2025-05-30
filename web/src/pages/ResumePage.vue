@@ -56,8 +56,8 @@ import WidgetSkillsPartial from '@partials/WidgetSkillsPartial.vue';
 import RecommendationPartial from '@partials/RecommendationPartial.vue';
 import WidgetReferencesPartial from '@partials/WidgetReferencesPartial.vue';
 
-import { ref, onMounted } from "vue";
-import type { User } from "@stores/users/userType";
+import { ref, onMounted } from 'vue';
+import type { User } from '@stores/users/userType';
 import { useUserStore } from '@stores/users/user.ts';
 
 const userStore = useUserStore();
@@ -66,6 +66,6 @@ const user = ref<User | null>(null);
 onMounted(() => {
 	userStore.onBoot((profile: User) => {
 		user.value = profile;
-	})
-})
+	});
+});
 </script>

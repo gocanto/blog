@@ -13,15 +13,15 @@ export interface UserStoreState {
 }
 
 export const useUserStore = defineStore(STORE_KEY, {
-    state: (): UserStoreState => ({
-        salt: "",
-        fullKey: "",
-        profile: null,
+	state: (): UserStoreState => ({
+		salt: '',
+		fullKey: '',
+		profile: null,
 		socialMedia: null,
-    }),
+	}),
 	actions: {
-        boot(): void {
-            this.profile = resolve(this.getStorageKey(), Response);
+		boot(): void {
+			this.profile = resolve(this.getStorageKey(), Response);
 		},
 		onBoot(callback: (data: User) => void): void {
 			if (this.hasNotBooted()) {
@@ -30,7 +30,7 @@ export const useUserStore = defineStore(STORE_KEY, {
 
 			this.socialMedia = mapSocialMedia(this.profile.social);
 
-			callback(this.profile)
+			callback(this.profile);
 		},
 		booted(): boolean {
 			return this.profile !== null;
@@ -39,7 +39,7 @@ export const useUserStore = defineStore(STORE_KEY, {
 			return !this.booted();
 		},
 		getStorageKey(): string {
-			const salt = Response.salt
+			const salt = Response.salt;
 
 			return `${STORAGE_KEY}-${salt}`;
 		},
@@ -47,26 +47,26 @@ export const useUserStore = defineStore(STORE_KEY, {
 			this.socialMedia = mapSocialMedia(this.profile.social);
 
 			return this.socialMedia;
-		}
+		},
 	},
 });
 
 function resolve(key: string, seed: User): User {
-    const data = localStorage.getItem(key);
+	const data = localStorage.getItem(key);
 
-    if (data === null) {
-        localStorage.setItem(key, JSON.stringify(seed));
+	if (data === null) {
+		localStorage.setItem(key, JSON.stringify(seed));
 
-        return seed;
-    } else {
-        try {
-            return JSON.parse(data);
-        } catch (error) {
-            localStorage.setItem(key, JSON.stringify(seed));
+		return seed;
+	} else {
+		try {
+			return JSON.parse(data);
+		} catch (error) {
+			localStorage.setItem(key, JSON.stringify(seed));
 
-            return seed;
-        }
-    }
+			return seed;
+		}
+	}
 }
 
 function mapSocialMedia(items: Social[]): SocialMediaMap {

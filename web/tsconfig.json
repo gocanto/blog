@@ -26,22 +26,8 @@
 			"@fonts/*": ["./src/fonts/*"],
 			"@stores/*": ["./src/stores/*"]
 		},
-		"lib": [
-            "esnext",
-            "dom",
-            "dom.iterable",
-            "scripthost",
-        ],
+		"lib": ["esnext", "dom", "dom.iterable", "scripthost"]
 	},
-	"include": [
-        "./src/**/*.ts",
-        "./src/**/*.tsx",
-        "./src/**/*.vue",
-        "./src/**/*.d.ts",
-        "./tests/**/*.ts",
-        "./tests/**/*.tsx",
-        "./vite.config.ts",
-        "./tests/**/*.json",
-    ],
+	"include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.vue", "./src/**/*.d.ts", "./tests/**/*.ts", "./tests/**/*.tsx", "./vite.config.ts", "./tests/**/*.json"],
 	"exclude": ["node_modules", "dist"]
 }
